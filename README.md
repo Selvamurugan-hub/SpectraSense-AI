@@ -1,177 +1,514 @@
-# Signal Analysis Assistant (NTRO)
-### Automated Model for Analysis of .IQ and .WAV Files with Signal Parameter Extraction
+# SpectraSense AI
 
-**Problem Statement ID**: 26147  
-**Organization**: National Technical Research Organisation (NTRO)  
-**Theme**: Space Technology  
-**Category**: Software  
-**System Name**: Signal Analysis Assistant  
+## AI-Powered Automated IQ & WAV Signal Analysis Platform
 
----
-
-## 🛰️ 1. Project Overview
-
-The **Signal Analysis Assistant** is an end-to-end engineering signal processing and telemetry intelligence platform developed for the National Technical Research Organisation (NTRO). The platform ingests raw binary complex `.iq` files (Float32, Int16, Int8, RTL-SDR cu8) and `.wav` audio/telemetry recordings, executes deterministic DSP signal analysis, automatically segments burst signals, extracts comprehensive measured and derived RF parameters, constructs deterministic **Signal Fingerprints**, benchmarks against historical reference baselines, computes directional **"What Changed?"** delta divergence, pinpoints explainable anomalies using statistical and Isolation Forest techniques, calculates **Signal Health (0-100)** and **Confidence** scores, prioritizes signals for defense analysts, and compiles defense-grade technical **PDF Reports**.
+**Problem Statement ID:** 26147  
+**Problem Statement:** Automated model for analysis of .IQ and .WAV files along with signal parameter extraction  
+**Theme:** Space Technology  
+**Category:** Software  
+**Team:** Tech Devil
 
 ---
 
-## ⚡ 2. Core Workflow
+## 🚀 Overview
 
+SpectraSense AI is an intelligent software platform designed to automate the analysis of **.IQ and .WAV signal recordings**.
+
+Engineers often need to manually inspect large signal recordings using multiple signal-processing tools. This process can be time-consuming and makes it difficult to quickly identify important signal parameters, signal changes, and abnormal signal behaviour.
+
+SpectraSense AI brings multiple signal-analysis capabilities into a **single automated platform**, helping engineers move from raw signal data to meaningful technical insights more efficiently.
+
+---
+
+## 🎯 Problem Statement
+
+Analysis of IQ and WAV recordings often involves:
+
+- Manual inspection of large signal recordings
+- Using multiple tools for different analysis tasks
+- Time-consuming parameter measurements
+- Difficulty in analysing long-duration recordings
+- Challenges in identifying abnormal signal behaviour
+- Manual comparison with previous signal recordings
+- Additional effort required for technical reporting
+
+These limitations create a need for an automated and intelligent signal-analysis workflow.
+
+---
+
+## 💡 Proposed Solution
+
+SpectraSense AI provides an end-to-end workflow for automated signal analysis.
+
+The platform is designed to:
+
+1. **Read IQ and WAV files**
+2. **Preprocess signal data**
+3. **Extract important signal parameters**
+4. **Generate signal visualizations**
+5. **Segment long signal recordings**
+6. **Create Signal Fingerprints**
+7. **Compare signals with historical data**
+8. **Detect unusual signal behaviour**
+9. **Generate Signal Health and Confidence information**
+10. **Produce technical analysis reports**
+
+---
+
+## 🔄 System Workflow
+
+```text
+                 IQ / WAV INPUT
+                       │
+                       ▼
+              Signal Preprocessing
+                       │
+                       ▼
+            Signal Parameter Extraction
+                       │
+          ┌────────────┼────────────┐
+          ▼            ▼            ▼
+      Waveform        FFT      Spectrogram
+          │            │            │
+          └────────────┼────────────┘
+                       ▼
+                Signal Fingerprint
+                       │
+                       ▼
+          Historical Baseline Comparison
+                       │
+                       ▼
+              AI / ML Signal Analysis
+                       │
+                ┌──────┴──────┐
+                ▼             ▼
+        Anomaly Detection   Signal Health
+                │             │
+                └──────┬──────┘
+                       ▼
+                Technical Report
+````
+
+---
+
+## 📊 Key Features
+
+### 1. Automated IQ/WAV Analysis
+
+Automatically processes uploaded **.IQ and .WAV recordings**, reducing repetitive manual signal-analysis work.
+
+### 2. Signal Parameter Extraction
+
+Extracts important signal characteristics such as:
+
+* Frequency
+* Bandwidth
+* Power
+* SNR
+* Signal Stability
+
+### 3. Signal Visualization
+
+Provides multiple signal visualizations:
+
+* Waveform
+* FFT
+* Spectrogram
+
+These visualizations help engineers understand signal behaviour in both time and frequency domains.
+
+### 4. Long Recording Segmentation
+
+Long-duration recordings can be divided into meaningful signal segments for easier inspection and analysis.
+
+### 5. Signal Fingerprinting
+
+Creates a unique **Signal Fingerprint** representing important characteristics of a signal.
+
+This can be used to compare current signals with previously analysed signals.
+
+### 6. Historical Baseline Comparison
+
+Stores and compares historical signal information to identify changes in signal behaviour over time.
+
+### 7. AI-Based Anomaly Detection
+
+Uses AI/ML-based analysis to identify unusual or unexpected signal patterns.
+
+### 8. Signal Health Assessment
+
+Provides:
+
+* Signal Health Score
+* Confidence Level
+* Anomaly Information
+* Signal Prioritization
+
+### 9. Automated Reporting
+
+Generates structured technical analysis reports containing important signal parameters, visualizations and analysis results.
+
+---
+
+## 🧠 Intelligent Signal Analysis
+
+The intelligent analysis workflow follows this concept:
+
+```text
+Current Signal
+      │
+      ▼
+Signal Fingerprint
+      │
+      ▼
+Historical Baseline
+      │
+      ▼
+Current vs Previous Signal
+      │
+      ▼
+Identify Signal Changes
+      │
+      ▼
+Anomaly Detection
+      │
+      ▼
+Signal Health & Confidence
 ```
-       [ Upload IQ / WAV File ]
-                  ↓
-     [ File Validation & Metadata ]
-                  ↓
-      [ Signal Preprocessing ]
-       (DC Removal, Normalization)
-                  ↓
-  [ Automatic Signal Segmentation ]
-       (Energy Envelope & Flux)
-                  ↓
-      [ Parameter Extraction ]
-  (Measured vs. Derived RF Metrics)
-                  ↓
-   [ Deterministic Fingerprint ]
-       (7D Vector + SHA-256 ID)
-                  ↓
-    [ Historical Baseline Match ]
-                  ↓
-       [ "What Changed?" ]
-   (Directional Deltas: ↑, ↓, →)
-                  ↓
-   [ Explainable Anomaly Engine ]
-  (Z-Score + Isolation Forest Outlier)
-                  ↓
- [ Confidence & Signal Health Score ]
-    (0-100 Deductive Factor Tree)
-                  ↓
-  [ Analyst Priority Triage Queue ]
-        (HIGH / MEDIUM / LOW)
-                  ↓
-  [ Explainable Engineering Summary ]
-                  ↓
-[ Defense-Grade Technical PDF Report ]
+
+---
+
+## 🛠️ Technology Stack
+
+### Backend
+
+* Python
+* FastAPI
+* NumPy
+* SciPy
+* scikit-learn
+* PyTorch
+
+### Frontend
+
+* React
+* TypeScript
+
+### Database
+
+* SQLite
+* PostgreSQL
+
+### Visualization
+
+* Plotly
+* Matplotlib
+
+### Development Tools
+
+* Git
+* GitHub
+* Visual Studio Code
+
+---
+
+## 🏗️ Project Structure
+
+```text
+SpectraSense-AI/
+│
+├── backend/
+│   ├── ...
+│   └── ...
+│
+├── frontend/
+│   ├── ...
+│   └── ...
+│
+├── sample_data/
+│   └── ...
+│
+├── reports_output/
+│   └── ...
+│
+├── uploads/
+│   └── ...
+│
+├── .gitignore
+├── README.md
+└── ...
 ```
 
 ---
 
-## 🛠️ 3. Technology Stack
+## 🔬 Signal Analysis Pipeline
 
-- **Frontend**: React 18, TypeScript, Vite, TailwindCSS, Plotly.js (`react-plotly.js`), Lucide React Icons.
-- **Backend**: Python 3.9+, FastAPI, Uvicorn, SQLAlchemy (SQLite for zero-config MVP, ready for PostgreSQL).
-- **Signal Processing & DSP**: NumPy, SciPy (Welch PSD, Hilbert analytic transform, Short-Time Fourier Transform STFT, dynamic thresholding, envelope tracking).
-- **Machine Learning & Statistics**: Scikit-Learn (Isolation Forest outlier detection, Mahalanobis distance, Z-score deviation).
-- **Report Generation**: ReportLab (High-resolution embedded Matplotlib time-domain, FFT, and spectrogram plots, telemetry tables, fingerprint visualizers).
+### Input
 
----
+The system is designed to analyse:
 
-## 📁 4. Supported File Formats
-
-| Format | Extension | Representation | Description |
-|---|---|---|---|
-| **Raw Complex Float32** | `.iq`, `.raw`, `.fc32` | Interleaved `I0, Q0, I1, Q1...` (32-bit float) | Defense SDR & Spacecraft telemetry downlink |
-| **Complex Int16** | `.iq`, `.bin`, `.sc16` | Interleaved `I0, Q0, I1, Q1...` (16-bit signed int) | Standard SDR captures (HackRF, USRP) |
-| **Complex Int8 / UInt8** | `.raw`, `.cu8`, `.sc8` | Interleaved `I0, Q0, I1, Q1...` (8-bit int) | RTL-SDR & high-rate compressed telemetry |
-| **WAV Audio / Telemetry**| `.wav` | Mono / Stereo 16/24/32-bit PCM | Analogue telemetry, acoustic radar, beacon signals |
-
----
-
-## 🔬 5. Mathematical & Signal Processing Methodology
-
-### 5.1 Preprocessing
-- **DC Offset Removal**: Independent zero-mean centering of In-Phase ($I$) and Quadrature ($Q$) components:
-  $$\tilde{I}(t) = I(t) - \frac{1}{N}\sum_{n=1}^N I[n], \quad \tilde{Q}(t) = Q(t) - \frac{1}{N}\sum_{n=1}^N Q[n]$$
-- **Peak Normalization**: Scale maximum envelope magnitude to unit peak preserving dynamic range.
-- **Noise Floor Estimation**: Median Absolute Deviation (MAD) of the lowest 20th percentile spectral density.
-
-### 5.2 Automatic Signal Segmentation
-- Sliding short-time energy window with adaptive noise-gate thresholding and hysteresis to detect active bursts and pulse trains without false triggering.
-
-### 5.3 Parameter Extraction
-- **Center Frequency & Spectral Centroid**: Power-weighted centroid:
-  $$f_c = \frac{\sum f_k \cdot P(f_k)}{\sum P(f_k)}$$
-- **Occupied Bandwidth (99% OBW)**: Numerical integration containing 99.0% of total spectral power.
-- **-3 dB & -10 dB Bandwidths**: Dynamic search around peak PSD.
-- **Signal-to-Noise Ratio (SNR)**: $SNR_{\text{dB}} = P_{\text{peak, dBFS}} - P_{\text{noise floor, dBFS}}$.
-- **Signal Stability Index**: Normalized inverse envelope variance:
-  $$S_{\text{stability}} = \frac{1}{1 + \frac{\text{Var}(|x|)}{\text{Mean}(|x|)^2}}$$
-
-### 5.4 Deterministic Signal Fingerprinting
-- Multi-dimensional normalized feature vector:
-  $$\vec{V}_{\text{FP}} = [f_{c, \text{norm}}, B_{\text{norm}}, P_{\text{norm}}, SNR_{\text{norm}}, S_{\text{norm}}, \text{Flatness}_{\text{norm}}, \text{Crest}_{\text{norm}}]$$
-- Cryptographic Signature: Deterministic SHA-256 signature hash formatted as `FP-<16_HEX>`. Same input produces identical signature.
-
-### 5.5 "What Changed?" Comparative Delta Engine
-- Real-time parameter-by-parameter comparative delta vs historical baseline:
-  $$\Delta \% = \left(\frac{x_{\text{current}} - \mu_{\text{baseline}}}{\mu_{\text{baseline}}}\right) \times 100\%$$
-- Status indicators: $\uparrow$ Increase, $\downarrow$ Decrease, $\rightarrow$ Stable with critical threshold flags.
-
-### 5.6 Signal Health Scoring (0 - 100)
-Transparent deductive scoring tree starting at 100:
-- Critical low SNR ($< 6\text{ dB}$): $-25$
-- Sub-optimal SNR ($< 12\text{ dB}$): $-12$
-- Envelope instability ($< 0.6$): $-18$
-- Critical Anomaly: $-20$ per event
-- High Anomaly: $-14$ per event
-- Warning Anomaly: $-8$ per event
-
-Status: **GOOD** (80-100) | **WARNING** (55-79) | **CRITICAL** (0-54).
-
----
-
-## 🚀 6. Installation & Quick Start
-
-### Prerequisites
-- Python 3.9+
-- Node.js v18+ & npm
-
-### Backend Setup
-```bash
-# Navigate to workspace
-cd "AI signal analysis system"
-
-# Run tests
-cd backend
-python -m pytest tests
-
-# Start FastAPI backend server
-python -m uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+```text
+.IQ
+.WAV
 ```
-API Documentation will be live at `http://localhost:8000/docs`.
 
-### Frontend Setup
-```bash
-# Open new terminal
-cd "AI signal analysis system/frontend"
+### Processing
 
-# Install dependencies (already built in production)
-npm install
-
-# Start Vite development server
-npm run dev
+```text
+Input File
+    ↓
+File Reading
+    ↓
+Signal Preprocessing
+    ↓
+Signal Conditioning
+    ↓
+Parameter Extraction
+    ↓
+Visualization
+    ↓
+AI / ML Analysis
 ```
-Open your browser at `http://localhost:5173`.
+
+### Output
+
+```text
+Signal Parameters
+       +
+Waveform
+       +
+FFT
+       +
+Spectrogram
+       +
+Signal Fingerprint
+       +
+Anomaly Information
+       +
+Signal Health
+       +
+Technical Report
+```
 
 ---
 
-## 🧪 7. Demo Lab Instructions
+## 📈 Impact & Benefits
 
-The system includes a **Demo Laboratory** featuring 4 pre-built Space & Defense test signals:
-1. **DEMO_SAT_QPSK_NOMINAL.iq**: Clean Space QPSK Telemetry ($f_c = 80\text{ kHz}$, SNR $\approx 25\text{ dB}$).
-2. **DEMO_SAT_QPSK_DEGRADED.iq**: Anomalous Space QPSK with carrier drift ($+22\text{ kHz}$ error) and high noise (SNR $\approx 9\text{ dB}$).
-3. **DEMO_RADAR_CHIRP_PULSED.wav**: 5-pulse LFM Radar Chirp ($2\text{ kHz} \to 12\text{ kHz}$ sweep).
-4. **DEMO_FSK_TELEMETRY_BEACON.wav**: 4-ary Frequency Hopping FSK telemetry bursts.
+### Faster Analysis
 
-**Quick Demo Walkthrough**:
-1. Open the UI at `http://localhost:5173`.
-2. Click **"Load Demo Signals"** in the top header.
-3. Select **"Upload & Ingest"** and click **"Analyze Signal"** on `DEMO_SAT_QPSK_NOMINAL.iq` to establish baseline.
-4. Run analysis on `DEMO_SAT_QPSK_DEGRADED.iq` to observe the **"What Changed?"** delta analysis ($\uparrow +27.6\%$ Frequency Drift, $\downarrow 16\text{ dB}$ SNR Drop) and anomaly alert triggers.
-5. Click **"Download Technical PDF Report"** to export the technical document.
+Automates repetitive signal-analysis operations and reduces manual processing time and effort.
+
+### Early Issue Detection
+
+Helps identify abnormal signal behaviour and unexpected changes at an early stage.
+
+### Improved Signal Monitoring
+
+Makes it easier to analyse and monitor large and long-duration signal recordings.
+
+### Better Decision Making
+
+Provides structured signal information and intelligent insights to support engineering decisions.
+
+### Smarter Signal Management
+
+Enables comparison of current signals with historical signal behaviour.
 
 ---
 
-## 🔒 8. Defense Compliance & Security
+## ⭐ Key Benefits
 
-- **Strictly Local DSP**: No external third-party cloud AI APIs required. Zero telemetry data leakage.
-- **Explainable Predictions**: Every score is accompanied by its underlying physical formulas and measured metrics.
+### Saves Time & Effort
+
+Reduces the need to manually analyse recordings using multiple tools.
+
+### One Analysis Platform
+
+Combines signal processing, visualization, AI analysis and reporting into a single workflow.
+
+### Easy Signal Understanding
+
+Waveform, FFT and Spectrogram visualizations make complex signal behaviour easier to interpret.
+
+### Intelligent Alerts
+
+Health Score, Confidence Level and anomaly information help highlight signals that require attention.
+
+### Automated Reports
+
+Generates structured technical reports and reduces manual documentation effort.
+
+---
+
+## 💎 Innovation
+
+### All-in-One Signal Analysis
+
+Automatically analyses IQ/WAV files and provides important results through a unified platform.
+
+### Smart Signal Fingerprint
+
+Creates a unique signal profile and compares it with previous signal behaviour.
+
+### AI-Based Anomaly Detection
+
+Identifies unusual signal changes and provides signal health and confidence information.
+
+### Automated Signal Intelligence
+
+Converts raw signal recordings into structured parameters, visualizations and actionable insights.
+
+---
+
+## 🔬 Research & Analysis
+
+SpectraSense AI is based on concepts from research in **IQ signal processing, deep learning, spectrogram analysis and automated spectrum monitoring**.
+
+### Research Areas
+
+| Research Area                     | Research Findings                                                                                                                               | Application in SpectraSense AI                                                   |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| **IQ Signal Processing**          | I/Q samples provide the in-phase and quadrature representation of an RF signal and can be used for signal analysis and AI-based classification. | Used as the input representation for IQ preprocessing and signal analysis.       |
+| **Signal Parameter Extraction**   | Automated spectrum monitoring supports technical measurements such as frequency, bandwidth, signal level and other signal characteristics.      | Used for automated extraction of frequency, bandwidth, power, SNR and stability. |
+| **Spectrogram Analysis**          | Time-frequency representations provide useful information about how signal frequency content changes over time.                                 | Used for Spectrogram generation and signal behaviour analysis.                   |
+| **AI / ML Signal Analysis**       | Machine learning and deep learning can identify patterns and characteristics from signal data.                                                  | Used for intelligent signal analysis and anomaly detection.                      |
+| **Historical Signal Analysis**    | Data-driven monitoring can use databases and historical measurements for comparison and analysis.                                               | Used for Signal Fingerprinting and Historical Baseline Comparison.               |
+| **Automated Spectrum Monitoring** | Automation can reduce repetitive monitoring tasks and support signal analysis and detection.                                                    | Used as the overall concept for automated IQ/WAV signal analysis.                |
+
+---
+
+## 📚 Research Papers & References
+
+### 1. Deep Learning Based Automatic Modulation Classification Using IQ Signals
+
+Research on applying deep learning techniques to IQ signal data for automatic signal classification.
+
+**IEEE Research Paper:**
+[https://doi.org/10.1109/ICOA62581.2024.10753757](https://doi.org/10.1109/ICOA62581.2024.10753757)
+
+---
+
+### 2. Automatic Modulation Classification with Deep Neural Networks
+
+Research analysing deep-learning architectures for automatic modulation classification and signal recognition.
+
+**Research Paper:**
+[https://doi.org/10.3390/electronics12183962](https://doi.org/10.3390/electronics12183962)
+
+---
+
+### 3. Modulation Classification Through Deep Learning Using Resolution Transformed Spectrograms
+
+Research on using spectrogram representations generated from I/Q data for deep-learning-based signal classification.
+
+**Research Paper:**
+[https://arxiv.org/abs/2306.04655](https://arxiv.org/abs/2306.04655)
+
+---
+
+### 4. ITU-R SM.1537
+
+**Automation and integration of spectrum monitoring systems with automated spectrum management.**
+
+This reference discusses automation of technical measurements, signal analysis, monitoring and comparison functions.
+
+**Official ITU Reference:**
+[https://www.itu.int/rec/R-REC-SM.1537](https://www.itu.int/rec/R-REC-SM.1537)
+
+---
+
+### 5. ITU-R SM.2542-1 (2026)
+
+**Next generation spectrum monitoring – proactive, autonomous and data-driven.**
+
+This report discusses next-generation spectrum monitoring concepts including AI/ML, RF machine learning, databases, preprocessing, analysis and visualization.
+
+**Official ITU Reference:**
+[https://www.itu.int/pub/R-REP-SM.2542-1-2026](https://www.itu.int/pub/R-REP-SM.2542-1-2026)
+
+---
+
+## 🔮 Future Enhancements
+
+The following features can be considered for future development:
+
+* Advanced deep-learning-based signal classification
+* Real-time signal monitoring
+* Automatic modulation classification
+* Advanced anomaly detection models
+* Multi-signal comparison
+* Real-time dashboards
+* Advanced signal alerting
+* Large-scale historical signal analytics
+* Cloud-based signal analysis
+* Additional signal-file format support
+
+---
+
+## 🔐 Data Handling
+
+SpectraSense AI is designed to support local signal-analysis workflows.
+
+Sensitive or large signal recordings should not be committed to a public GitHub repository.
+
+The project `.gitignore` is configured to exclude files such as:
+
+```text
+.env
+*.iq
+*.wav
+*.db
+*.sqlite
+*.sqlite3
+.venv/
+venv/
+__pycache__/
+*.pyc
+```
+
+---
+
+## 👥 Team
+
+### Tech Devil
+
+**Smart India Hackathon 2026**
+
+**Problem Statement ID:** 26147
+
+**Theme:** Space Technology
+**Category:** Software
+
+---
+
+## 🎯 Project Vision
+
+> **From Raw Signal Data to Faster, Smarter and Actionable Signal Intelligence.**
+
+SpectraSense AI aims to simplify complex signal analysis by combining:
+
+**Signal Processing + Visualization + Historical Comparison + AI-Based Analysis + Automated Reporting**
+
+into a single intelligent platform.
+
+---
+
+## 📌 Project Status
+
+**Status:** Active Development
+
+SpectraSense AI is being developed as a software solution for automated analysis of **.IQ and .WAV signal recordings** along with signal parameter extraction, visualization, historical comparison and intelligent analysis.
+
+---
+
+## 📄 License
+
+This project is currently developed as part of **Smart India Hackathon 2026**.
+
+License information can be added based on the project's final distribution requirements.
+
+---
+
+## ⭐ SpectraSense AI
+
+**Automated Signal Analysis. Intelligent Signal Insights.**
