@@ -1,0 +1,10 @@
+﻿*.db
+*.sqlite
+*.sqlite3
+*.iq
+*.wav
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
